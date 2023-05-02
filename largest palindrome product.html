@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="app"></p>
+    <script>
+        function reverse(number){
+            let num=number.toString()
+            let string=""
+            for(let i=num.length-1;i>=0;i--){
+                    string+=num[i]
+            }
+            if(string==num){
+                return string
+            }
+            return "None"
+        }
+        function numbers(){
+            let number=0
+            let listNumber={}
+            let listNumbers=[]
+            for(let i=100;i<=999;i++){
+                for(let j=100;j<=999;j++){
+                    number=i*j
+                    let answer=reverse(number)
+                    if(answer!="None"){
+                        listNumber[number]=[i,j]
+                        listNumbers.push(number)
+                    }
+                }
+            }
+            let max=Math.max(...listNumbers)
+            return [max,listNumber[max]]
+        }
+        console.log(numbers())
+    </script>
+</body>
+</html>
